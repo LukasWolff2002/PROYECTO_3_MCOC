@@ -1,0 +1,7 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {part}{I\hspace {1em}Entrega 0}{1}{part.1}%
+\contentsline {section}{\numberline {1}Comandos Para Correr Arquitectura X86 en Arquitectura ARM}{1}{section.1}%
+\contentsline {section}{\numberline {2}Calculos Manuales}{1}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Calculo de Deformacion}{2}{subsection.2.1}%
+\contentsline {section}{\numberline {3}Opensees}{2}{section.3}%
+\contentsline {part}{II\hspace {1em}Referencias}{3}{part.2}%

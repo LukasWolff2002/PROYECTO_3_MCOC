@@ -1,0 +1,92 @@
+\part{Entrega 0}
+
+\section{Comandos Para Correr Arquitectura X86 en Arquitectura ARM}
+
+Primero se llama la instancia en una arquitectura X86
+
+\begin{verbatim}
+    arch -x86_64 python3 -m venv x86_env
+\end{verbatim}
+
+Luego se activa
+
+\begin{verbatim}
+    source x86_env/bin/activate
+\end{verbatim}
+
+Para instalar las librerias necesarias
+
+\begin{verbatim}
+    arch -x86_64 pip install <librerias>
+\end{verbatim}
+
+Finalmente debo correr el codigo desde la instancia
+
+\begin{verbatim}
+    arch -x86_64 python3 <ruta> .py
+\end{verbatim}
+
+
+    
+
+
+\section{Calculos Manuales}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    \textbf{Barra} & \textbf{Esfuerzo Interno} & \textbf{D$_{int}$, D$_{ext}$ [mm]} & \textbf{Tensiones Internas} & \textbf{Fuerza Critica Pandeo} \\ 
+    \hline
+    AB & 89.411 & (10, 28.500) & 159.835 & 508.521 \\ 
+    AL & 15.000 & (10, 20.000) & 63.662 & 100.932 \\ 
+    LK & 0.000 & (10, 20.000) & 0.000 & 227.096 \\ 
+    LB & 0.000 & (10, 20.000) & 0.000 & 176.805 \\ 
+    BC & 71.874 & (10, 26.000) & 158.876 & 541.368 \\ 
+    BK & 30.000 & (10, 20.000) & 127.324 & 798.385 \\ 
+    KJ & 0.000 & (10, 20.000) & 0.000 & 227.096 \\ 
+    JC & 30.000 & (10, 20.000) & 127.324 & 204386.560 \\ 
+    JI & 0.000 & (10, 20.000) & 0.000 & 227.096 \\ 
+    CI & 64.321 & (10, 25.000) & 155.994 & 575.617 \\ 
+    IH & 0.000 & (10, 20.000) & 0.000 & 403.727 \\ 
+    IE & 70.062 & (10, 26.000) & 154.871 & 1012.850 \\ 
+    HE & 30.000 & (10, 20.000) & 127.324 & 2150.023 \\ 
+    HG & 0.000 & (10, 20.000) & 0.000 & 403.727 \\ 
+    GE & 0.000 & (10, 20.000) & 0.000 & 339.901 \\ 
+    GF & 15.000 & (10, 20.000) & 63.662 & 227.096 \\ 
+    EF & 86.488 & (10, 28.000) & 160.993 & 899.137 \\ 
+    \hline
+    \end{tabular}
+    \caption{Informacion Barras}
+\end{table}
+
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Key} & \textbf{Diccionario 1} & \textbf{Diccionario 2} \\ 
+\hline
+AB & 1.314 & 5.687 \\ 
+AL & 3.299 & 6.729 \\ 
+BC & 1.322 & 7.532 \\ 
+BK & 1.649 & 26.613 \\ 
+CI & 1.346 & 8.949 \\ 
+IE & 1.356 & 14.456 \\ 
+EF & 1.304 & 10.396 \\ 
+\hline
+\end{tabular}
+\caption{Factor de Seguridad Fluencia y Pandeo}
+\end{table}
+
+\textbf{Nota:} solo se consideran las barras que tienen algun esfuerzo interno significante para el calculo del FS.
+
+
+\subsection{Calculo de Deformacion}
+
+
+
+\section{Opensees}
+
+
