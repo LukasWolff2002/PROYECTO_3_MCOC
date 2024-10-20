@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import openseespy.opensees as ops
 import pyvista as pv
 
-# arch -x86_64 python3 /Users/lukaswolff/Desktop/24_20/METODOS_COMPUTACIONALES/PROYECTO_2/ENTREGA_0/CODIGO/OPENSEES/E0_Wolff.py
+#arch -x86_64 python3 /Users/lukaswolff/Desktop/24_20/METODOS_COMPUTACIONALES/PROYECTO_3_MCOC/CODIGO/OPENSEES/E0_Wolff.py
 
 # Parámetros del material y área
 E = 210e9  # Módulo de elasticidad en Pa
@@ -41,9 +41,24 @@ for node_id, coords in nodes.items():
 
 # Definir los elementos truss
 elements = [
-    (1, 2), (1, 3), (2, 3), (2, 4), (3, 4), (3, 5), (4, 6), 
-    (4, 5), (5, 6), (5, 7), (6, 7), (7, 9), (7, 8), (8, 9), 
-    (8, 10), (9, 10), (8, 11), (10, 11)
+    (1, 2), #1
+    (1, 3), #2BC
+    (2, 3), #3
+    (2, 4), #4
+    (3, 4), #5
+    (3, 5), #6
+    (4, 6), #7
+    (4, 5), #8
+    (5, 6), #9
+    (5, 7), #10
+    (6, 7), #11
+    (7, 9), #12
+    (7, 8), #13
+    (8, 9), #14
+    (8, 10), #15
+    (9, 10), #16
+    (8, 11), #17
+    (10, 11) #18
 ]
 
 for i, (ni, nj) in enumerate(elements, start=1):
@@ -104,7 +119,7 @@ print(f"Desplazamientos del nodo {nodeTag}: ux = {ux}, uy = {uy}")
 xfact = 100  # Ajusta este valor según sea necesario
 
 # Crear la figura para el gráfico
-fig, ax = plt.subplots(figsize=(10, 8))
+fig, ax = plt.subplots(figsize=(10, 5))
 ax.set_aspect('equal', adjustable='box')
 
 # Dibujar la estructura original (sin deformación)
@@ -131,10 +146,23 @@ for ele in elements:
     # Estructura deformada
     ax.plot([ix + ux_i, jx + ux_j], [iy + uy_i, jy + uy_j], 'red', lw=1.5, label='Deformed')
 
+from matplotlib.lines import Line2D
+
+# Crear manejadores personalizados
+custom_lines = [
+    Line2D([0], [0], color='grey', lw=2, label='Original'),
+    Line2D([0], [0], color='red', lw=2, label='Deformed')
+]
+
+# Agregar la leyenda usando los manejadores personalizados
+plt.legend(handles=custom_lines, loc='lower right', fontsize=12)
+
 # Configurar etiquetas y el gráfico
 ax.set_xlabel('Distance (m)')
 ax.set_ylabel('Distance (m)')
 ax.grid(True)
+
+plt.tight_layout()
 
 # Guardar y mostrar el gráfico
 plt.savefig('deformed_truss.png')

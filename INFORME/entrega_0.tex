@@ -2,6 +2,8 @@
 
 \section{Comandos Para Correr Arquitectura X86 en Arquitectura ARM}
 
+Debido a que trabajo en MAC, la arquitectura utilizadas es ARM 64, donde el requerimiento para las librerias es X86, por lo que se debe correr una instancia de X86 en la arquitectura ARM, donde para activar el entorno, se utilizan los siguientes comandos:
+
 Primero se llama la instancia en una arquitectura X86
 
 \begin{verbatim}
@@ -32,6 +34,8 @@ Finalmente debo correr el codigo desde la instancia
 
 \section{Calculos Manuales}
 
+El codigo realizado para calcular el reticulado se encuentra en el \href{https://github.com/LukasWolff2002/PROYECTO_3_MCOC/blob/main/CODIGO/CODIGO_MANUAL/solucion_reticulado.py}{siguiente link}, donde, para calcular la seccion de las barras, se utilizo el \href{https://github.com/LukasWolff2002/PROYECTO_3_MCOC/blob/main/CODIGO/CODIGO_MANUAL/tipo_barras.py}{siguiente codigo}.
+
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|c|}
@@ -60,13 +64,13 @@ Finalmente debo correr el codigo desde la instancia
     \caption{Informacion Barras}
 \end{table}
 
-
+\textbf{Nota:} todas las barras se encuentran en esfuerzo de comprecion.
 
 \begin{table}[H]
 \centering
 \begin{tabular}{|c|c|c|}
 \hline
-\textbf{Key} & \textbf{Diccionario 1} & \textbf{Diccionario 2} \\ 
+\textbf{Key} & \textbf{FS Fluencia} & \textbf{FS Pandeo} \\ 
 \hline
 AB & 1.314 & 5.687 \\ 
 AL & 3.299 & 6.729 \\ 
@@ -88,5 +92,57 @@ EF & 1.304 & 10.396 \\
 
 
 \section{Opensees}
+
+EL codigo utilizado para hacer el modelo en Opensees se encuentra en el \href{https://github.com/LukasWolff2002/PROYECTO_3_MCOC/blob/main/CODIGO/OPENSEES/E0_Wolff.py}{siguiente link}, donde los esfuerzos obtenidos son los siguientes:
+
+\begin{table}[H]
+    \centering
+    \caption{Esfuerzos internos en las barras (fuerzas axiales)}
+    \label{tab:esfuerzos_internos}
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Barra} & \textbf{Fuerza Axial (KN)} \\
+        \hline
+        AL & 15.03 \\
+        AB & 89.39 \\
+        LB & 0.06  \\
+        LK & 0.05  \\
+        KB & 30.03 \\
+        BC & 71.82 \\
+        KJ & 0.79  \\
+        KC & 0.74  \\
+        JC & 30.00 \\
+        CD & 63.53 \\
+        JI & 0.79  \\
+        IH & 0.00  \\
+        IE & 70.06 \\
+        HE & 30.00 \\
+        EF & 0.00  \\
+        HG & 0.00  \\
+        EF & 86.49 \\
+        GF & 15.00 \\ \hline
+    \end{tabular}
+\end{table}
+
+\textbf{Nota:} Se observa claramente una relacion directa con los resultados manuales, donde la pequeña variacion nace de la adicion de la barra \textbf{KC}.
+
+\subsection{Deformaciones}
+
+Para el calculo de las deformaciones, se asume una seccion igual para todas las barras, donde, segun los datosa calculados manualmente, la seccion nesesaria es (10,28.5), los resultados obtenidos son los siguientes:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{GRAFICOS/deformed_truss.png}
+    \caption{Deformaciones en los nodos}
+    \label{fig:deformaciones}
+\end{figure}
+
+La deformacion observada en el nodo D/I es:
+
+\begin{equation}
+    \delta_x = -0.041897044917005404 \quad \delta_y =  -0.08428973931863179
+\end{equation}
+
+
 
 
