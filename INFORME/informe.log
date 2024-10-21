@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.3.17)  20 OCT 2024 11:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.3.17)  21 OCT 2024 11:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -783,7 +783,7 @@ Package hyperref Info: Link coloring ON on input line 118.
 
 Couldn't patch \ttl@straight@ii
 Couldn't patch \ttl@straight@ii
-<LOGO_UNIVERSIDAD.jpg, id=35, 682.9515pt x 247.6452pt>
+<LOGO_UNIVERSIDAD.jpg, id=39, 682.9515pt x 247.6452pt>
 File: LOGO_UNIVERSIDAD.jpg Graphic file (type jpg)
 <use LOGO_UNIVERSIDAD.jpg>
 Package pdftex.def Info: LOGO_UNIVERSIDAD.jpg  used on input line 128.
@@ -853,13 +853,13 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 File: LOGO_UNIVERSIDAD.jpg Graphic file (type jpg)
 <use LOGO_UNIVERSIDAD.jpg>
-Package pdftex.def Info: LOGO_UNIVERSIDAD.jpg  used on input line 86.
+Package pdftex.def Info: LOGO_UNIVERSIDAD.jpg  used on input line 83.
 (pdftex.def)             Requested size: 110.8946pt x 40.20973pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.86 
+l.83 
       [1
 
 
@@ -867,48 +867,59 @@ l.86
 pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.86 
+l.83 
      ]
-<GRAFICOS/deformed_truss.png, id=67, 722.7pt x 361.35pt>
-File: GRAFICOS/deformed_truss.png Graphic file (type png)
-<use GRAFICOS/deformed_truss.png>
-Package pdftex.def Info: GRAFICOS/deformed_truss.png  used on input line 135.
-(pdftex.def)             Requested size: 354.86412pt x 177.43246pt.
 File: LOGO_UNIVERSIDAD.jpg Graphic file (type jpg)
 <use LOGO_UNIVERSIDAD.jpg>
-Package pdftex.def Info: LOGO_UNIVERSIDAD.jpg  used on input line 139.
+Package pdftex.def Info: LOGO_UNIVERSIDAD.jpg  used on input line 155.
 (pdftex.def)             Requested size: 110.8946pt x 40.20973pt.
  [2
 pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.139 
-      
+l.155 \end{table}
+                 
 pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.139 
-      ])
+l.155 \end{table}
+                 ]
+<GRAFICOS/deformed_truss.png, id=88, 722.7pt x 361.35pt>
+File: GRAFICOS/deformed_truss.png Graphic file (type png)
+<use GRAFICOS/deformed_truss.png>
+Package pdftex.def Info: GRAFICOS/deformed_truss.png  used on input line 165.
+(pdftex.def)             Requested size: 354.86412pt x 177.43246pt.
+File: LOGO_UNIVERSIDAD.jpg Graphic file (type jpg)
+<use LOGO_UNIVERSIDAD.jpg>
+Package pdftex.def Info: LOGO_UNIVERSIDAD.jpg  used on input line 169.
+(pdftex.def)             Requested size: 110.8946pt x 40.20973pt.
+ [3
+pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.169 
+      ]
+<GRAFICOS/3D.png, id=96, 449.68pt x 264.99pt>
+File: GRAFICOS/3D.png Graphic file (type png)
+<use GRAFICOS/3D.png>
+Package pdftex.def Info: GRAFICOS/3D.png  used on input line 174.
+(pdftex.def)             Requested size: 354.86412pt x 209.1255pt.
+)
 File: LOGO_UNIVERSIDAD.jpg Graphic file (type jpg)
 <use LOGO_UNIVERSIDAD.jpg>
 Package pdftex.def Info: LOGO_UNIVERSIDAD.jpg  used on input line 180.
 (pdftex.def)             Requested size: 110.8946pt x 40.20973pt.
- [3
+ [4
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.180 \include{entrega_0}
-                          <./GRAFICOS/deformed_truss.png>]
-No file informe.bbl.
-File: LOGO_UNIVERSIDAD.jpg Graphic file (type jpg)
-<use LOGO_UNIVERSIDAD.jpg>
-Package pdftex.def Info: LOGO_UNIVERSIDAD.jpg  used on input line 189.
-(pdftex.def)             Requested size: 110.8946pt x 40.20973pt.
-[4
-
-
-
-] (./informe.aux
+                         
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.180 \include{entrega_0}
+                          <./GRAFICOS/deformed_truss.png> <./GRAFICOS/3D.png>] (./informe.aux
 LaTeX Info: Redefining \. on input line 15.
 LaTeX Info: Redefining \% on input line 15.
  (./entrega_0.aux))
@@ -917,21 +928,21 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `informe.out' has not changed.
-(rerunfilecheck)             Checksum: 6B5DF2B430FF1DDFC06FFE2774B8138E;1090.
+(rerunfilecheck)             Checksum: A73A40F000B585D94B7318B4B477F666;1285.
  ) 
 Here is how much of TeX's memory you used:
- 27341 strings out of 474116
- 501048 string characters out of 5743682
- 1945187 words of memory out of 5000000
- 49122 multiletter control sequences out of 15000+600000
- 593336 words of font info for 127 fonts, out of 8000000 for 9000
+ 27357 strings out of 474116
+ 501305 string characters out of 5743682
+ 1949187 words of memory out of 5000000
+ 49129 multiletter control sequences out of 15000+600000
+ 593956 words of font info for 130 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,16n,87p,1216b,546s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on informe.pdf (6 pages, 363317 bytes).
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on informe.pdf (6 pages, 379664 bytes).
 PDF statistics:
- 135 PDF objects out of 1000 (max. 8388607)
- 106 compressed objects within 2 object streams
- 17 named destinations out of 1000 (max. 500000)
- 41039 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 154 PDF objects out of 1000 (max. 8388607)
+ 121 compressed objects within 2 object streams
+ 23 named destinations out of 1000 (max. 500000)
+ 41052 words of extra memory for PDF output out of 42996 (max. 10000000)
 

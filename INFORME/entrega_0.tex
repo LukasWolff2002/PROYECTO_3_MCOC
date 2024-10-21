@@ -29,10 +29,27 @@ Finalmente debo correr el codigo desde la instancia
 \end{verbatim}
 
 
-    
-
-
 \section{Calculos Manuales}
+
+\subsection{Claculo de alturas}
+
+Para calcular la altura de los puntos desconocidos, se determino el momento en tal nodo, obteniendo asi:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Nodo} & \textbf{Altura [m]}  \\ 
+    \hline
+    B & 7.733  \\ 
+    C & 11.733  \\ 
+    E & 9.400 \\ 
+    \hline
+    \end{tabular}
+    \caption{LAturas Nodos Desconocidos}
+\end{table}
+
+\subsection{Solucion Reticulado}
 
 El codigo realizado para calcular el reticulado se encuentra en el \href{https://github.com/LukasWolff2002/PROYECTO_3_MCOC/blob/main/CODIGO/CODIGO_MANUAL/solucion_reticulado.py}{siguiente link}, donde, para calcular la seccion de las barras, se utilizo el \href{https://github.com/LukasWolff2002/PROYECTO_3_MCOC/blob/main/CODIGO/CODIGO_MANUAL/tipo_barras.py}{siguiente codigo}.
 
@@ -42,23 +59,23 @@ El codigo realizado para calcular el reticulado se encuentra en el \href{https:/
     \hline
     \textbf{Barra} & \textbf{Esfuerzo Interno} & \textbf{D$_{int}$, D$_{ext}$ [mm]} & \textbf{Tensiones Internas} & \textbf{Fuerza Critica Pandeo} \\ 
     \hline
-    AB & 89.411 & (10, 28.500) & 159.835 & 508.521 \\ 
-    AL & 15.000 & (10, 20.000) & 63.662 & 100.932 \\ 
-    LK & 0.000 & (10, 20.000) & 0.000 & 227.096 \\ 
-    LB & 0.000 & (10, 20.000) & 0.000 & 176.805 \\ 
-    BC & 71.874 & (10, 26.000) & 158.876 & 541.368 \\ 
-    BK & 30.000 & (10, 20.000) & 127.324 & 798.385 \\ 
-    KJ & 0.000 & (10, 20.000) & 0.000 & 227.096 \\ 
-    JC & 30.000 & (10, 20.000) & 127.324 & 204386.560 \\ 
-    JI & 0.000 & (10, 20.000) & 0.000 & 227.096 \\ 
-    CI & 64.321 & (10, 25.000) & 155.994 & 575.617 \\ 
-    IH & 0.000 & (10, 20.000) & 0.000 & 403.727 \\ 
-    IE & 70.062 & (10, 26.000) & 154.871 & 1012.850 \\ 
-    HE & 30.000 & (10, 20.000) & 127.324 & 2150.023 \\ 
-    HG & 0.000 & (10, 20.000) & 0.000 & 403.727 \\ 
-    GE & 0.000 & (10, 20.000) & 0.000 & 339.901 \\ 
-    GF & 15.000 & (10, 20.000) & 63.662 & 227.096 \\ 
-    EF & 86.488 & (10, 28.000) & 160.993 & 899.137 \\ 
+    AB & 89.411 & (117.000, 135.500) & 24.371 & 117.169 \\ 
+    AL & 15.000 & (85.000, 95.000) & 10.610 & 19.682 \\ 
+    LK & 0.000 & (10.000, 20.000) & 0.000 & 0.227 \\ 
+    LB & 0.000 & (10.000, 20.000) & 0.000 & 0.177 \\ 
+    BC & 71.874 & (98.500, 114.500) & 26.852 & 94.163 \\ 
+    BK & 30.000 & (52.000, 62.000) & 33.506 & 39.731 \\ 
+    KJ & 0.000 & (10.000, 20.000) & 0.000 & 0.227 \\ 
+    JC & 30.000 & (10.000, 20.000) & 127.324 & 204.387 \\ 
+    JI & 0.000 & (10.000, 20.000) & 0.000 & 0.227 \\ 
+    CI & 64.321 & (90.000, 105.000) & 27.999 & 84.599 \\ 
+    IH & 0.000 & (10.000, 20.000) & 0.000 & 0.404 \\ 
+    IE & 70.062 & (77.500, 93.500) & 32.604 & 91.438 \\ 
+    HE & 30.000 & (36.000, 46.000) & 46.582 & 40.103 \\ 
+    HG & 0.000 & (10.000, 20.000) & 0.000 & 0.404 \\ 
+    GE & 0.000 & (10.000, 20.000) & 0.000 & 0.340 \\ 
+    GF & 15.000 & (63.500, 73.500) & 13.941 & 19.569 \\ 
+    EF & 86.488 & (92.500, 110.500) & 30.137 & 112.836 \\ 
     \hline
     \end{tabular}
     \caption{Informacion Barras}
@@ -72,13 +89,16 @@ El codigo realizado para calcular el reticulado se encuentra en el \href{https:/
 \hline
 \textbf{Key} & \textbf{FS Fluencia} & \textbf{FS Pandeo} \\ 
 \hline
-AB & 1.314 & 5.687 \\ 
-AL & 3.299 & 6.729 \\ 
-BC & 1.322 & 7.532 \\ 
-BK & 1.649 & 26.613 \\ 
-CI & 1.346 & 8.949 \\ 
-IE & 1.356 & 14.456 \\ 
-EF & 1.304 & 10.396 \\ 
+AB & 8.617 & 1.310 \\ 
+AL & 19.792 & 1.312 \\ 
+BC & 7.821 & 1.310 \\ 
+BK & 6.267 & 1.324 \\ 
+JC & 1.649 & 6.813 \\ 
+CI & 7.500 & 1.315 \\ 
+IE & 6.441 & 1.305 \\ 
+HE & 4.508 & 1.337 \\ 
+GF & 15.064 & 1.305 \\ 
+EF & 6.968 & 1.305 \\ 
 \hline
 \end{tabular}
 \caption{Factor de Seguridad Fluencia y Pandeo}
@@ -89,7 +109,17 @@ EF & 1.304 & 10.396 \\
 
 \subsection{Calculo de Deformacion}
 
+Para el calculo de la deformacion en el nodo D/I, se impone una fuerza virtual igual a 1, de esta manera es posible calcular el reticulado. Con todos los esfuerzos conocidos, se aplica la siguiente formula:
 
+\begin{equation}
+    \delta = \sum   \frac{P_r \cdot P_v \cdot L}{E\cdot A}
+\end{equation}
+
+Se obtuvieron los siguientes desplazamientos, donde la seccion considerada es (117, 135.5):
+
+\begin{equation}
+    \delta_x = -8.47300012321403 mm \quad \delta_y = -10.1170948633426 mm
+\end{equation}
 
 \section{Opensees}
 
@@ -128,7 +158,7 @@ EL codigo utilizado para hacer el modelo en Opensees se encuentra en el \href{ht
 
 \subsection{Deformaciones}
 
-Para el calculo de las deformaciones, se asume una seccion igual para todas las barras, donde, segun los datosa calculados manualmente, la seccion nesesaria es (10,28.5), los resultados obtenidos son los siguientes:
+Para el calculo de las deformaciones, se asume una seccion igual para todas las barras, donde, segun los datosa calculados manualmente, la seccion nesesaria es (117, 135.5), los resultados obtenidos son los siguientes:
 
 \begin{figure}[H]
     \centering
@@ -137,12 +167,26 @@ Para el calculo de las deformaciones, se asume una seccion igual para todas las 
     \label{fig:deformaciones}
 \end{figure}
 
+El diagrama tridimencional solicitado es el siguiente:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{GRAFICOS/3D.png}
+    \caption{Grafico 3D}
+    \label{fig:deformaciones_3D}
+\end{figure}
+
 La deformacion observada en el nodo D/I es:
 
 \begin{equation}
-    \delta_x = -0.041897044917005404 \quad \delta_y =  -0.08428973931863179
+    \delta_x = -0.0065527383052691 m \quad \delta_y = -0.013182996668814742 m
 \end{equation}
 
+De esta manera, los porcentajes de error respecto al calculo manual son:
+
+\begin{equation}
+    \delta_x = 29.31\% \quad \delta_y = 30.23\%
+\end{equation}
 
 
 

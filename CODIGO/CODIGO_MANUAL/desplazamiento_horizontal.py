@@ -1,15 +1,12 @@
-from solucion_reticulado import Coordenadas_H, Coordenadas_V
 from sympy import symbols, Eq, solve
 
-#Quiero obtener el desplazamiento en el nodo D = I
-#Para obtener el desplazamiento vertical impongo una fuerza virtual igual a 1
-barras = {'AB': 0, 'AL': 0, 'LK': 0, 'LB': 0, 'BC': 0, 'BK': 0, 'KJ': 0, 'JC': 0, 'JI': 0, 'CI': 0, 'IH': 0, 'IE': 0, 'HE': 0, 'HG': 0, 'GE': 0, 'GF': 0, 'EF': 0}  # En m
-#Debo conocer que barras experimentan un esfuerzo de esta manera
+Fuerzas_V_ext = {'A': 0, 'B': 0, 'C': 0, 'E': 0, 'F': 0, 'L': 0, 'K': 0, 'J': 0, 'I': 0, 'H': 0, 'G': 0}  # En KN
+Fuerzas_H_ext = {'A': 0, 'B': 0, 'C': 0, 'E': 0, 'F': 0, 'L': 0, 'K': 0, 'J': 0, 'I': 1, 'H': 0, 'G': 0}  # En KN
 
-Fuerzas_V_V = {'A': 0, 'L': 0, 'B': 0, 'K': 0, 'C': 0, 'J': 0, 'I': -1, 'E': 0, 'H': 0, 'F': 0, 'G': 0}
-Fuerzas_H_V = {'A': 0, 'L': 0, 'B': 0, 'K': 0, 'C': 0, 'J': 0, 'I': 0, 'E': 0, 'H': 0, 'F': 0, 'G': 0}
+Coordenadas_H = {'A': 0, 'L': 0, 'B': 8, 'K': 8, 'C': 16, 'J': 16, 'I': 24, 'E': 30, 'H': 30, 'F': 36, 'G': 36}  # En m
+Coordenadas_V = {'A': 0, 'L': 12, 'B': 116/15, 'K': 12, 'C':  176/15, 'J': 12, 'I': 12, 'E': 47/5, 'H': 12, 'F': 4, 'G': 12}  # En m
 
-#De esta manera, puedo calcular las reacciones en los nodos
+# Definir las incógnitas
 Va, Vf, Ha, Hf = symbols('Va Vf Ha Hf')
 
 # Diccionarios para reacciones
@@ -17,13 +14,13 @@ Reacciones_V = {'A': Va, 'F': Vf}
 Reacciones_H = {'A': Ha, 'F': Hf}
 
 # Ecuación de equilibrio de fuerzas verticales
-R_V_total = sum(Fuerzas_V_V.values())  # Sumar todas las fuerzas Vernas verticales
+R_V_total = sum(Fuerzas_V_ext.values())  # Sumar todas las fuerzas externas verticales
 
 # Calcular el momento en torno a A (M_A)
 M_A = 0
-# Agregar los momentos generados por las fuerzas verticales Vernas
-for i in Fuerzas_V_V.keys():
-    M_A -= Fuerzas_V_V[i] * Coordenadas_H[i]  # Momento de las fuerzas en torno a A
+# Agregar los momentos generados por las fuerzas verticales externas
+for i in Fuerzas_V_ext.keys():
+    M_A += Fuerzas_H_ext[i] * Coordenadas_V[i]  # Momento de las fuerzas en torno a A
 
 # Considerar el momento generado por la reacción vertical en F
 M_A -= Reacciones_V['F'] * Coordenadas_H['F']
@@ -36,11 +33,11 @@ ecuacion_momento_A = Eq(M_A, 0)
 
 # Ahora, calcular el momento en torno a I (M_I)
 M_I = 0
-# Agregar los momentos generados por las fuerzas Vernas en nodos relevantes
+# Agregar los momentos generados por las fuerzas externas en nodos relevantes
 Nodos_actuantes = ['H', 'G', 'F']  # Evitamos duplicados innecesarios
 
 for nodo in Nodos_actuantes:
-    M_I -= Fuerzas_V_V[nodo] * (Coordenadas_H[nodo]-Coordenadas_H['I'])
+    M_I -= Fuerzas_H_ext[nodo] * (Coordenadas_V[nodo]-Coordenadas_V['I'])
 
 # Considerar el momento generado por la reacción vertical en F
 M_I -= Reacciones_V['F'] * (Coordenadas_H['F']-Coordenadas_H['I'])
@@ -53,6 +50,7 @@ ecuacion_momento_I = Eq(M_I, 0)
 
 print(f'{ecuacion_momento_A=}')
 print(f'{ecuacion_momento_I=}')
+
 # Resolver el sistema de ecuaciones para las reacciones
 soluciones = (solve([ecuacion_momento_A, ecuacion_momento_I], [Hf, Vf]))
 Hf = soluciones[Hf]*-1 #por como se define el enunciado
@@ -72,17 +70,17 @@ Va = solve(ecuacion_fuerzas_verticales, Va)[0]*-1
 # Imprimir las soluciones
 print(f'{Ha=}, {Va=}')
 
-#Guardo las soluciones
-Fuerzas_V_V['A'] = Va
-Fuerzas_V_V['F'] = Vf
-Fuerzas_H_V['A'] = Ha
-Fuerzas_H_V['F'] = Hf
+#Bien, implemento las reacciones en los nodos
+Fuerzas_V_ext['A'] = Va
+Fuerzas_V_ext['F'] = Vf
+Fuerzas_H_ext['A'] = Ha
+Fuerzas_H_ext['F'] = Hf
 
 
-#Perfecto, ahora puedo calcular todas las barras que experimentan un esfuerzo horizontal
-#Para esto, debo calcular las fuerzas en las barras
+#Bien, ahora calculo el reticulado
 
-#Para el nodo A
+barras = {'AB': 0, 'AL': 0, 'LK': 0, 'LB': 0, 'BC': 0, 'BK': 0, 'KJ': 0, 'JC': 0, 'JI': 0, 'CI': 0, 'IH': 0, 'IE': 0, 'HE': 0, 'HG': 0, 'GE': 0, 'GF': 0, 'EF': 0}  # En m
+
 def proyeccion_H (nodo1, nodo2):
     largo_barra = ((Coordenadas_H[nodo2] - Coordenadas_H[nodo1])**2 + (Coordenadas_V[nodo2] - Coordenadas_V[nodo1])**2)**0.5
     cateto_A = abs(Coordenadas_H[nodo2] - Coordenadas_H[nodo1])
@@ -99,18 +97,17 @@ def proyeccion_V (nodo1, nodo2):
         return 1
     return (cateto_O/largo_barra)
 
-
 #Vamos con el Nodo A
 AB, AL = symbols('AB AL')
 #Suma vertical de fuerzas
-suma_V = Fuerzas_V_V['A']
+suma_V = Fuerzas_V_ext['A']
 #Agrego las proyecciones de las barras
-suma_V += AB*proyeccion_V('A', 'B') + AL*proyeccion_V('A', 'L')
+suma_V += +AB*proyeccion_V('A', 'B') - AL*proyeccion_V('A', 'L')
 
 #Suma horizontal de fuerzas
-suma_H = Fuerzas_H_V['A']
+suma_H = Fuerzas_H_ext['A']
 #Agrego las proyecciones de las barras
-suma_H += AB*proyeccion_H('A', 'B') + AL*proyeccion_H('A', 'L')
+suma_H += -AB*proyeccion_H('A', 'B') + AL*proyeccion_H('A', 'L')
 
 #Ecuacion de equilibrio en A
 ecuacion_V = Eq(suma_V, 0)
@@ -127,12 +124,12 @@ barras['AL'] = soluciones[AL]*-1
 LB, LK = symbols('LB LK')
 
 #Suma vertical de fuerzas
-suma_V = Fuerzas_V_V['L']
+suma_V = Fuerzas_V_ext['L']
 #Agrego las proyecciones de las barras
 suma_V += LB*proyeccion_V('L', 'B') + LK*proyeccion_V('L', 'K') + barras['AL']*proyeccion_V('L', 'A')
 
 #Suma horizontal de fuerzas
-suma_H = Fuerzas_H_V['L']
+suma_H = Fuerzas_H_ext['L']
 #Agrego las proyecciones de las barras
 suma_H += LB*proyeccion_H('L', 'B') + LK*proyeccion_H('L', 'K') + barras['AL']*proyeccion_H('L', 'A')
 
@@ -151,12 +148,12 @@ barras['LK'] = soluciones[LK]*-1
 BK, BC = symbols('BK BC')
 
 #Suma vertical de fuerzas
-suma_V = Fuerzas_V_V['B']
+suma_V = Fuerzas_V_ext['B']
 #Agrego las proyecciones de las barras
-suma_V += BK*proyeccion_V('B', 'K') + BC*proyeccion_V('B', 'C') + barras['LB']*proyeccion_V('B', 'L') + barras['AB']*proyeccion_V('B', 'A')
+suma_V += BK*proyeccion_V('B', 'K') + BC*proyeccion_V('B', 'C') - barras['LB']*proyeccion_V('B', 'L') + barras['AB']*proyeccion_V('B', 'A')
 
 #Suma horizontal de fuerzas
-suma_H = Fuerzas_H_V['B']
+suma_H = Fuerzas_H_ext['B']
 #Agrego las proyecciones de las barras
 suma_H += BK*proyeccion_H('B', 'K') + BC*proyeccion_H('B', 'C') + barras['LB']*proyeccion_H('B', 'L') + barras['AB']*proyeccion_H('B', 'A')
 
@@ -175,41 +172,37 @@ barras['BC'] = soluciones[BC]*-1
 KJ = symbols('KJ')
 
 #Suma vertical de fuerzas
-suma_V = Fuerzas_V_V['K']
+suma_V = Fuerzas_V_ext['K']
 #Agrego las proyecciones de las barras
 suma_V += KJ*proyeccion_V('K', 'J') + barras['BK']*proyeccion_V('K', 'B') + barras['LK']*proyeccion_V('K', 'L')
 
 #Suma horizontal de fuerzas
-suma_H = Fuerzas_H_V['K']
+suma_H = Fuerzas_H_ext['K']
 #Agrego las proyecciones de las barras
-suma_H += KJ*proyeccion_H('K', 'J') + barras['BK']*proyeccion_H('K', 'B') + barras['LK']*proyeccion_H('K', 'L')
+suma_H +=  KJ*proyeccion_H('K', 'J') - barras['BK']*proyeccion_H('K', 'B') + barras['LK']*proyeccion_H('K', 'L')
 
 #Ecuacion de equilibrio en K
 ecuacion_V = Eq(suma_V, 0)
 ecuacion_H = Eq(suma_H, 0)
 
-print(ecuacion_H)
-print(ecuacion_V)
-
 soluciones = solve(ecuacion_H, KJ)
-print(f'{soluciones=}')
+print(f'KJ {soluciones=}')
 
 #bien, ahora actualizo las fuerzas en las barras
 barras['KJ'] = soluciones[0]*-1
-
 
 #Ahora voy con el nodo J
 JI, JC = symbols('JI JC')
 
 #Suma vertical de fuerzas
-suma_V = Fuerzas_V_V['J']
+suma_V = Fuerzas_V_ext['J']
 #Agrego las proyecciones de las barras
-suma_V += -JI*proyeccion_V('J', 'I') - JC*proyeccion_V('J', 'C') + barras['KJ']*proyeccion_V('J', 'K')
+suma_V += -JI*proyeccion_V('J', 'I') + JC*proyeccion_V('J', 'C') + barras['KJ']*proyeccion_V('J', 'K')
 
 #Suma horizontal de fuerzas
-suma_H = Fuerzas_H_V['J']
+suma_H = Fuerzas_H_ext['J']
 #Agrego las proyecciones de las barras
-suma_H += JI*proyeccion_H('J', 'I') + JC*proyeccion_H('J', 'C') + barras['KJ']*proyeccion_H('J', 'K')
+suma_H += JI*proyeccion_H('J', 'I') + JC*proyeccion_H('J', 'C') +barras['KJ']*proyeccion_H('J', 'K')
 
 #Ecuacion de equilibrio en J
 ecuacion_V = Eq(suma_V, 0)
@@ -226,12 +219,12 @@ barras['JC'] = soluciones[JC]*-1
 GF, EF = symbols('GF EF')
 
 #Suma vertical de fuerzas
-suma_V = Fuerzas_V_V['F']
+suma_V = Fuerzas_V_ext['F']
 #Agrego las proyecciones de las barras
 suma_V += +GF*proyeccion_V('F', 'G') + EF*proyeccion_V('F', 'E')
 
 #Suma horizontal de fuerzas
-suma_H = Fuerzas_H_V['F']
+suma_H = Fuerzas_H_ext['F']
 #Agrego las proyecciones de las barras
 suma_H += -GF*proyeccion_H('F', 'G') - EF*proyeccion_H('F', 'E')
 
@@ -250,14 +243,14 @@ barras['EF'] = soluciones[EF]*-1
 GE, HG = symbols('GE HG')
 
 #Suma vertical de fuerzas
-suma_V = Fuerzas_V_V['G']
+suma_V = Fuerzas_V_ext['G']
 #Agrego las proyecciones de las barras
 suma_V += -GE*proyeccion_V('G', 'E') + HG*proyeccion_V('G', 'H') + barras['GF']*proyeccion_V('G', 'F')
 
 #Suma horizontal de fuerzas
-suma_H = Fuerzas_H_V['G']
+suma_H = Fuerzas_H_ext['G']
 #Agrego las proyecciones de las barras
-suma_H += -GE*proyeccion_H('G', 'E') + HG*proyeccion_H('G', 'H') + barras['GF']*proyeccion_H('G', 'F')
+suma_H += -GE*proyeccion_H('G', 'E') - HG*proyeccion_H('G', 'H') -  barras['GF']*proyeccion_H('G', 'F')
 
 #Ecuacion de equilibrio en G
 ecuacion_V = Eq(suma_V, 0)
@@ -270,16 +263,20 @@ print(f'{soluciones=}')
 barras['GE'] = soluciones[GE]*-1
 barras['HG'] = soluciones[HG]*-1
 
+#Guardo las soluciones
+barras['GE'] = soluciones[GE]*-1
+barras['HG'] = soluciones[HG]*-1
+
 #Ahora voy con el nodo H
 HE, IH = symbols('HE IH')
 
 #Suma vertical de fuerzas
-suma_V = Fuerzas_V_V['H']
+suma_V = Fuerzas_V_ext['H']
 #Agrego las proyecciones de las barras
 suma_V += -HE*proyeccion_V('H', 'E') - IH*proyeccion_V('H', 'I') - barras['HG']*proyeccion_V('H', 'G')
 
 #Suma horizontal de fuerzas
-suma_H = Fuerzas_H_V['H']
+suma_H = Fuerzas_H_ext['H']
 #Agrego las proyecciones de las barras
 suma_H += -HE*proyeccion_H('H', 'E') - IH*proyeccion_H('H', 'I') - barras['HG']*proyeccion_H('H', 'G')
 
@@ -299,12 +296,12 @@ barras['IH'] = soluciones[IH]*-1
 IE = symbols('IE')
 
 #Suma vertical de fuerzas
-suma_V = Fuerzas_V_V['E']
+suma_V = Fuerzas_V_ext['E']
 #Agrego las proyecciones de las barras
 suma_V += -IE*proyeccion_V('E', 'I') + barras['HE']*proyeccion_V('E', 'H') - barras['EF']*proyeccion_V('E', 'F')
 
 #Suma horizontal de fuerzas
-suma_H = Fuerzas_H_V['E']
+suma_H = Fuerzas_H_ext['E']
 #Agrego las proyecciones de las barras
 suma_H += IE*proyeccion_H('E', 'I') + barras['HE']*proyeccion_H('E', 'H') - barras['EF']*proyeccion_H('E', 'F')
 
@@ -319,53 +316,46 @@ print(f'IE = {soluciones[0]}')
 barras['IE'] = soluciones[0]*-1
 
 
-
 #Ahora voy con el nodo I
 CI = symbols('CI')
 
 #Suma vertical de fuerzas
-suma_V = Fuerzas_V_V['I']
+suma_V = Fuerzas_V_ext['I']
 #Agrego las proyecciones de las barras
 suma_V += -CI*proyeccion_V('I', 'C') + barras['IE']*proyeccion_V('I', 'E') 
 
 #Suma horizontal de fuerzas
-suma_H = Fuerzas_H_V['I']
+suma_H = Fuerzas_H_ext['I']
 #Agrego las proyecciones de las barras
-suma_H += -CI*proyeccion_H('I', 'C') - barras['IE']*proyeccion_H('I', 'E') + barras['IH']*proyeccion_H('I', 'H') + barras['JI']*proyeccion_H('I', 'J')
+suma_H += CI*proyeccion_H('I', 'C') - barras['IE']*proyeccion_H('I', 'E')
 
 #Ecuacion de equilibrio en I
 ecuacion_V = Eq(suma_V, 0)
 ecuacion_H = Eq(suma_H, 0)
 
-print(ecuacion_H)
-print(ecuacion_V)
-
-soluciones = solve(ecuacion_H, CI)
+soluciones = solve(ecuacion_V, CI)
 print(f'CI = {soluciones[0]}')
 
 #Guardo las soluciones
 barras['CI'] = soluciones[0]*-1
 
+
+from solucion_reticulado import barras as esfuerzos_reales
+from tipo_barras import E, area
 print('')
+dimenciones = (117, 135.5)
+A = area(dimenciones)
+
+esfuerzos_virtuales = {}
+for secciones in barras:
+    largo = (((Coordenadas_H[secciones[0]] - Coordenadas_H[secciones[1]])**2 + (Coordenadas_V[secciones[0]] - Coordenadas_V[secciones[1]])**2)**0.5)*1000
+    numerador = barras[secciones]*esfuerzos_reales[secciones]*1000*largo
+
+    esfuerzos_virtuales[secciones] = numerador/(A*E)
 
 
+desplazamientos = esfuerzos_virtuales.values()
 
+desplazamiento_vertical = sum(desplazamientos)
+print(f'El desplazamiento horizontal es de {desplazamiento_vertical} mm')
 
-
-#Ahora importo los esfuerzos reales
-from solucion_reticulado import barras as esfuerzo_barras_r
-print('------------------')
-print(barras)
-print(esfuerzo_barras_r)
-
-#Bien, ahora hago la sumatoria
-def largo(barra):
-    return ((Coordenadas_H[barra[0]] - Coordenadas_H[barra[1]])**2 + (Coordenadas_V[barra[0]] - Coordenadas_V[barra[1]])**2)**0.5
-
-
-desplazamiento_vertical = 0
-for barra in barras:
-    desplazamiento_vertical += (esfuerzo_barras_r[barra] * barras[barra] * largo(barra))/(210000*559.399)
-                                                                       #Asumo una barra de diametro 10 y 28.5)
-
-print(desplazamiento_vertical)                                                                       

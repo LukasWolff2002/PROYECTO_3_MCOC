@@ -8,8 +8,8 @@ import pyvista as pv
 
 # Parámetros del material y área
 E = 210e9  # Módulo de elasticidad en Pa
-D1 = 0.0285  # Diámetro en m
-esp = 0.00925  # Espesor en m
+D1 = 0.1355 # Diámetro en m
+esp = 0.009  # Espesor en m
 A1 = math.pi * ((D1 / 2) ** 2 - ((D1 - 2 * esp) / 2) ** 2)  # Área de la sección transversal
 
 print(A1)
