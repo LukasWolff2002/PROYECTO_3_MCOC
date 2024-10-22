@@ -1,9 +1,13 @@
 \babel@toc {spanish}{}\relax 
 \contentsline {part}{I\hspace {1em}Entrega 0}{1}{part.1}%
-\contentsline {section}{\numberline {1}Comandos Para Correr Arquitectura X86 en Arquitectura ARM}{1}{section.1}%
-\contentsline {section}{\numberline {2}Calculos Manuales}{1}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Claculo de alturas}{1}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Solucion Reticulado}{1}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Calculo de Deformacion}{2}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Opensees}{3}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Deformaciones}{3}{subsection.3.1}%
+\contentsline {section}{\numberline {1}Material Utilizado}{1}{section.1}%
+\contentsline {section}{\numberline {2}Comandos Para Correr Arquitectura X86 en Arquitectura ARM}{1}{section.2}%
+\contentsline {section}{\numberline {3}Cálculos Manuales}{2}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Cálculo de alturas}{2}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Solución Reticulado}{2}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Cálculo de Deformación}{3}{subsection.3.3}%
+\contentsline {section}{\numberline {4}OpenSees}{3}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Solución Reticulado}{3}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Deformaciones}{4}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Conclusión}{5}{section.5}%
+\contentsline {section}{\numberline {6}Anexos}{6}{section.6}%
