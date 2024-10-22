@@ -97,14 +97,15 @@ displacements = {node: ops.nodeDisp(node) for node in nodes.keys()}
 
 # Obtener los esfuerzos internos (fuerza axial) de cada barra
 print("\nEsfuerzos internos en las barras (fuerzas axiales):")
-for ele in range(1, len(elements) + 1):  # Recorre todos los elementos
-    axial_force = ops.eleResponse(ele, 'axialForce')  # Obtener la fuerza axial
-    
-    # Verificar si el valor devuelto es una lista u otro tipo de contenedor
+# Obtener los esfuerzos internos (fuerza axial) de cada barra y almacenarlos
+axial_forces = []
+for ele in range(1, len(elements) + 1):
+    axial_force = ops.eleResponse(ele, 'axialForce')
     if isinstance(axial_force, (list, tuple)):
-        axial_force = (axial_force[0])/1000  # Extraer el primer valor si es una lista
-    
-    print(f"Barra {ele}: Fuerza axial = {axial_force:.2f} KN")
+        axial_force = axial_force[0]
+    axial_forces.append(axial_force)
+
+print(axial_force)
 
 #Obtengo el desplazamiento del nodo D
 nodeTag = 7  # Identificador del nodo
@@ -191,7 +192,7 @@ lines = np.array([[2, e[0] - 1, e[1] - 1] for e in elements])
 # Añadir la estructura no deformada
 truss_undeformed = pv.PolyData(points_undeformed)
 truss_undeformed.lines = lines
-plotter.add_mesh(truss_undeformed, color='blue', line_width=2, label="Undeformed")
+plotter.add_mesh(truss_undeformed, color='grey', line_width=2, label="Undeformed")
 
 # Añadir la estructura deformada
 truss_deformed = pv.PolyData(points_deformed)
@@ -201,5 +202,4 @@ plotter.add_mesh(truss_deformed, color='red', line_width=2, label="Deformed")
 # Añadir la leyenda y mostrar el gráfico
 plotter.add_legend()
 plotter.show()
-
 

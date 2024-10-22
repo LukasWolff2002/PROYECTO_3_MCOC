@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1729596582.27665 "/Users/lukaswolff/Desktop/24_20/METODOS_COMPUTACIONALES/PROYECTO_3_MCOC/INFORME/informe.tex" "informe.pdf" "informe" 1729596583.40036 0
+["pdflatex"] 1729614763.46633 "/Users/lukaswolff/Desktop/24_20/METODOS_COMPUTACIONALES/PROYECTO_3_MCOC/INFORME/informe.tex" "informe.pdf" "informe" 1729614764.55468 0
   "/Users/lukaswolff/Desktop/24_20/METODOS_COMPUTACIONALES/PROYECTO_3_MCOC/INFORME/informe.tex" 1729520304.91211 7520 a616b721e7cc5ca2fae2540b170b5c5e ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
@@ -197,13 +197,13 @@
   "GRAFICOS/3D.png" 1729455223.93127 33848 0ea513caf5cb14e05da6791ecb8b5f74 ""
   "GRAFICOS/deformed_truss.png" 1729455094.81072 50026 8f46db5bd53d477bdc9b66b9f8cb926b ""
   "LOGO_UNIVERSIDAD.jpg" 1729168505.72386 209820 0b87a0bacbcaefabd8c20ec03a39f2f2 ""
-  "entrega_0.aux" 1729596583.30178 3460 e8fc9b6ed4099eddf28006314ffbd68e "pdflatex"
-  "entrega_0.tex" 1729596580.97037 10933 a5873b00ed4fdd59285765ecf6e58831 ""
-  "informe.aux" 1729596583.30209 468 e833e54d702a07f89286bbedee825afc "pdflatex"
-  "informe.lof" 1729596583.30405 300 5d7a94613e1165f50e40374bca20d6f1 "pdflatex"
-  "informe.out" 1729596583.30368 1784 64423be1e810d6c94fe811f32e0df364 "pdflatex"
+  "entrega_0.aux" 1729614764.46254 3721 74d4567f392307a64726abc3e0d462f6 "pdflatex"
+  "entrega_0.tex" 1729614763.15323 11819 f215dd3c8573a2857f3357e9fdcc22df ""
+  "informe.aux" 1729614764.46285 469 757f0c9548ada6181ac428e3371da098 "pdflatex"
+  "informe.lof" 1729614764.46468 300 8d0d74b05ba8361ad9f14ce1eaaaac8e "pdflatex"
+  "informe.out" 1729614764.4644 1953 6738d42dff16e80bd8ed2efadf30a7fc "pdflatex"
   "informe.tex" 1729520304.91211 7520 a616b721e7cc5ca2fae2540b170b5c5e ""
-  "informe.toc" 1729596583.30397 968 0beeae631b126c7e991837da62cf73ce "pdflatex"
+  "informe.toc" 1729614764.46463 1055 bbdd4b0f506b487ad7ad139392742cab "pdflatex"
   (generated)
   "entrega_0.aux"
   "informe.aux"

@@ -45,9 +45,30 @@ Finalmente, se debe correr el código desde la instancia:
 
 \section{Cálculos Manuales}
 
+A continuacion se detallaran los resultados obtenidos a lo largo del proceso de calculo manual, donde el codigo para calcular el reticulado esta en \href{https://github.com/LukasWolff2002/PROYECTO_3_MCOC/blob/main/CODIGO/CODIGO_MANUAL/solucion_reticulado.py}{siguiente enlace}.
+\\ \\
+Para resolver el reticulado, se realiza como si fuera manuelamente, haciendo equilibrio nodo por nodo. Personalmente, utiliza python ya que ante cualquier error o cambio a realizar, es mucho mas rapido y no tengo que calcular todo nuevamente.
+
+\subsection{Calculo de Reacciones}
+
+Al calcular las reacciones en los apoyos, se obtiene lo siguiente:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Nodo} & \textbf{Reacción X [KN]} & \textbf{Reacción Y [KN]}  \\ 
+    \hline
+    A & 64.286 & 72.857  \\ 
+    F & -64.286 & 77.143  \\ 
+    \hline
+    \end{tabular}
+    \caption{Reacciones en los Apoyos}
+\end{table}
+
 \subsection{Cálculo de alturas}
 
-Para calcular la altura de los puntos desconocidos, se determinó el momento en tal nodo, obteniendo así:
+Para calcular la altura de los puntos desconocidos, se determinó el momento en tal nodo igual a 0, obteniendo así:
 
 \begin{table}[H]
     \centering
@@ -63,9 +84,10 @@ Para calcular la altura de los puntos desconocidos, se determinó el momento en 
     \caption{Alturas Nodos Desconocidos}
 \end{table}
 
+\newpage
 \subsection{Solución Reticulado}
 
-El código realizado para calcular el reticulado se encuentra en el \href{https://github.com/LukasWolff2002/PROYECTO_3_MCOC/blob/main/CODIGO/CODIGO_MANUAL/solucion_reticulado.py}{siguiente enlace}, y para calcular la sección de las barras, se utilizó el \href{https://github.com/LukasWolff2002/PROYECTO_3_MCOC/blob/main/CODIGO/CODIGO_MANUAL/tipo_barras.py}{siguiente código}.
+Para calcular la sección de las barras, se utilizó el \href{https://github.com/LukasWolff2002/PROYECTO_3_MCOC/blob/main/CODIGO/CODIGO_MANUAL/tipo_barras.py}{siguiente código}, donde se itero cada seccion hasta que cumpliera con un FS minimo de 1.3.
 
 \begin{table}[H]
     \centering
@@ -95,7 +117,7 @@ El código realizado para calcular el reticulado se encuentra en el \href{https:
     \caption{Información Barras}
 \end{table}
 
-\textbf{Nota:} Todas las barras se encuentran en esfuerzo de compresión.
+\textbf{Nota:} Todas las barras se encuentran en esfuerzo de compresión, ademas se asume la fluencia igual en traccion y comprecion.
 
 \begin{table}[H]
 \centering
